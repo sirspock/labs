@@ -50,19 +50,32 @@ docker stop wordpress db
 docker rm wordpress db
 ```
 
+Vuelva a iniciar los containers como en el paso anterior. Abra la página. ¿Qué paso con el trabajo?. La información que tiene los containers queda en el containers, si se borra el container, la información tambien.
 
 
-```
-docker run -e MYSQL_ROOT_PASSWORD=RetRsb6ok3JqpsUf1Wnl -e MYSQL_DATABASE=wordpress -e MYSQL_USER=wordpress -e MYSQL_PASSWORD=PILrbJwDPjPLGed8o1uF --name db -v dbdata:/var/lib/mysql -d mariadb:latest
-```
+### 3.4 Uso de volumenes 
 
-Describamos lo que estamos haciendo:
- - La imagen que vamos a utilizar es **mariadb:latest**
- - `-d` perimite hacer el detached
- - Y se pasan cuatro varaibles de entorno: MYSQL_ROOT_PASSWORD,MYSQL_DATABASE,MYSQL_USER,MYSQL_PASSWORD
-
-
+Si existe información que debe ser persistente y se debe guardar en el host. Por lo tanto se utilizan volumenes. Los volumenes es el mecanismo preferidopara generar y usar información persistente con Docker containers.
 
 ```
-docker run -e WORDPRESS_DB_HOST=db:3306 -e WORDPRESS_DB_USER=wordpress -e WORDPRESS_DB_PASSWORD=PILrbJwDPjPLGed8o1uF  --link db:db  -p 8080:80 --name wordpress -v static:/var/www/html -d wordpress:latest
-``
+docker run \
+ -e MYSQL_ROOT_PASSWORD=RetRsb6ok3JqpsUf1Wnl \
+ -e MYSQL_DATABASE=wordpress \
+ -e MYSQL_USER=wordpress \
+ -e MYSQL_PASSWORD=PILrbJwDPjPLGed8o1uF \
+ --name db \
+ -v dbdata:/var/lib/mysql \
+ -d mariadb:latest
+
+docker run \
+ -e WORDPRESS_DB_HOST=db:3306 \
+ -e WORDPRESS_DB_USER=wordpress \
+ -e WORDPRESS_DB_PASSWORD=PILrbJwDPjPLGed8o1uF \
+ --link db:db  \
+ -p 8080:80 \
+ --name wordpress \
+ -v static:/var/www/html \
+ -d wordpress:latest
+```
+
+Se crea un volumen llamado dbdata y static. Y ahora la información se encuentra a salvo.
