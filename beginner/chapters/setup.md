@@ -14,6 +14,16 @@ The *getting started* guide on Docker has detailed instructions for setting up D
 
 *All commands work in either bash or Powershell on Windows*
 
+
+### Quickstart
+
+You can install Docker quickly 
+
+```
+curl -fsSL get.docker.com -o get-docker.sh
+sh get-docker.sh
+```
+
 Once you are done installing Docker, test your Docker installation by running the following:
 ```
 $ docker run hello-world
