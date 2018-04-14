@@ -20,6 +20,7 @@ The *getting started* guide on Docker has detailed instructions for setting up D
 You can install Docker quickly 
 
 ```
+apt update
 curl -fsSL get.docker.com -o get-docker.sh
 sh get-docker.sh
 ```
