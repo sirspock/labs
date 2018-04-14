@@ -6,9 +6,8 @@ This repo contains [Docker](https://docker.com) labs and tutorials authored both
 * [Docker for beginners](beginner/readme.md)
 
 
-### Servers
+### Links
 
-* [Servers](https://docs.google.com/spreadsheets/d/1ZYrK-z33-Je63wAciFlbaVPILOK16Of7n1bGZbixUis/edit#gid=0)
-
-Usuario: root
-Contraseñera: iotutfsm911
+[Is Docker Good for Your Database?](https://www.percona.com/blog/2016/11/16/is-docker-for-your-database/)
+[Docker and the PID 1 zombie reaping problem](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/)
+[An Init System inside the Docker Container](https://medium.com/@nagarwal/an-init-system-inside-the-docker-container-3821ee233f4b)
