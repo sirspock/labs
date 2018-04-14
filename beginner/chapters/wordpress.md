@@ -29,14 +29,7 @@ Se define variables de entorno:
 - WORDPRESS_DB_PASSWORD: La contraseña del usuario
 
 ```
-docker run \
- -e WORDPRESS_DB_HOST=dbwordpress:3306 \
- -e WORDPRESS_DB_USER=wordpress \
- -e WORDPRESS_DB_PASSWORD=PILrbJwDPjPLGed8o1uF \
- --link dbwordpress:db  \
- -p 8080:80 \ 
- --name wordpress \
- -d wordpress:latest
+docker run  -e WORDPRESS_DB_HOST=db:3306  -e WORDPRESS_DB_USER=wordpress  -e WORDPRESS_DB_PASSWORD=PILrbJwDPjPLGed8o1uF  --link db:db   -p 8080:80  --name wordpress  -d wordpress:latest
 ```
 
 Luego probar ingresar a la dirección IP y usar el puerto 8080.  Configurar su página web.
@@ -67,15 +60,8 @@ docker run \
  -v dbdata:/var/lib/mysql \
  -d mariadb:latest
 
-docker run \
- -e WORDPRESS_DB_HOST=db:3306 \
- -e WORDPRESS_DB_USER=wordpress \
- -e WORDPRESS_DB_PASSWORD=PILrbJwDPjPLGed8o1uF \
- --link db:db  \
- -p 8080:80 \
- --name wordpress \
- -v static:/var/www/html \
- -d wordpress:latest
+docker run  -e WORDPRESS_DB_HOST=dbwordpress:3306  -e WORDPRESS_DB_USER=wordpress  -e WORDPRESS_DB_PASSWORD=PILrbJwDPjPLGed8o1uF  --link db:db   -p 8080:80  --name wordpress  -v static:/var/www/html -d wordpress:latest
+
 ```
 
 Se crea un volumen llamado dbdata y static. Y ahora la información se encuentra a salvo.
