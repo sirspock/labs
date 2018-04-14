@@ -21,7 +21,7 @@ Describamos lo que estamos haciendo:
 
 ### 3.2 Corriendo el wordpress
  
-Luego debemos crear el wordpress (servidor web), como el servidor web tiene que conectarse con la base de datos se utiliza la opción **--link**. Aquí vemos como une al container db y le entrega el nombre **dbwordpress**
+Luego debemos crear el wordpress (servidor web), como el servidor web tiene que conectarse con la base de datos se utiliza la opción **--link**. Aquí vemos como une al container db y le entrega el nombre **db**
 
 Se define variables de entorno:
 - WORDPRESS_DB_HOST: El host de la base de datos
@@ -60,7 +60,7 @@ docker run \
  -v dbdata:/var/lib/mysql \
  -d mariadb:latest
 
-docker run  -e WORDPRESS_DB_HOST=dbwordpress:3306  -e WORDPRESS_DB_USER=wordpress  -e WORDPRESS_DB_PASSWORD=PILrbJwDPjPLGed8o1uF  --link db:db   -p 8080:80  --name wordpress  -v static:/var/www/html -d wordpress:latest
+docker run  -e WORDPRESS_DB_HOST=db:3306  -e WORDPRESS_DB_USER=wordpress  -e WORDPRESS_DB_PASSWORD=PILrbJwDPjPLGed8o1uF  --link db:db   -p 8080:80  --name wordpress  -v static:/var/www/html -d wordpress:latest
 
 ```
 
